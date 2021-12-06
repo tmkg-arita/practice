@@ -1,0 +1,102 @@
+body{
+    width: 50%;
+    margin: auto;
+
+}
+
+.heading{
+    display: flex;
+    /* background-color: green; */
+    /* justify-content: left; */
+    align-items:  center;
+    border-bottom: 2px solid gray;
+}
+
+
+a button {
+    font-size: 16px;
+    margin-left: 24px;
+}
+table{
+    width: 90%;
+    text-align: left;
+    /* border-bottom:1px solid rgb(36, 35, 35); */
+
+}
+
+
+
+
+
+th{
+    margin-left: 32px;
+    border-bottom:1px solid rgb(36, 35, 35);
+
+    color: cadetblue;
+
+}
+
+td{
+    margin-left: 32px;
+    font-weight: bold;
+    color: rgb(41, 41, 41);
+    font-size: large;
+    border-bottom: 1px solid rgb(36, 35, 35);
+}
+
+.update a{
+    text-decoration: none;
+
+
+}
+.delete a{
+    text-decoration: none;
+
+}
+
+footer{
+    /* background-color: blue; */
+    color: dimgray;
+    font-size: small;
+    text-align: right;
+}
+
+
+p{
+    font-weight: bold;
+    height: 12px;
+    color: rgb(41, 41, 41);
+
+}
+
+p input{
+
+    height: 24px;
+
+
+}
+p input[type="radio"]{
+    position: relative;
+    top: 6px;
+
+
+    /* margin-right: 8px; */
+  }
+
+.msg{
+    margin-left: 32px;
+    color: darkcyan;
+}
+span{
+      font-size: large;
+      font-weight: bold;
+      color: crimson;
+  }
+
+  .re-list{
+      display: block;
+      margin-top: 24px;
+      text-decoration: none;
+  }
+
+
