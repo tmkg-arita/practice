@@ -43,6 +43,8 @@ class CrudController extends Controller
      */
     public function store(HelloRequest $request)
     {
+        // var_dump($request->name);
+        //  dd($request);
         $gen = $request -> gender;
         $gen = intval($gen);
 
@@ -51,6 +53,8 @@ class CrudController extends Controller
         $post->mail = $request->mail;
         $post->age = $request->age;
         $post->gender = $gen;
+
+
 
         $post->save();
         return view('posts.index')->with(['msg' => '登録が完了しました。']);
@@ -73,13 +77,16 @@ class CrudController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit()
+    public function edit(Request $request)
     {
-        $id = $_POST['id_number'];
-        $users=User::where('id', $id)->get();
-        // dd($users);
 
-        return view('posts.edit')->with(['msg' => '編集する項目を修正して下さい。'],['users' => compact($users)]);
+        $id = $request -> id_number;
+        $id = intval($id);
+        $users = User::where('id', $id)->get();
+        // dd($users);
+        $msg = '編集する項目を修正して下さい。';
+
+        return view('posts.edit',compact('msg','users'));
     }
 
     /**
@@ -91,7 +98,19 @@ class CrudController extends Controller
      */
     public function update(HelloRequest $request)
     {
+        // var_dump($request->name);
+        $gen = $request -> gender;
+        $gen = intval($gen);
 
+        $posts = new User();
+
+        $posts->name = $request->name;
+        $posts->mail = $request->mail;
+        $posts->age = $request->age;
+        $posts->gender = $gen;
+        // var_dump($posts -> name);
+        $posts->update();
+        return  view('posts.index')->with(['msg' => '編集が完了しました。']);
     }
 
     /**

@@ -15,6 +15,14 @@ class HelloRequest extends FormRequest
     {
         if($this -> path() == 'create'){
             return true;
+        }elseif($this -> path() == 'edit'){
+            return true;
+        }elseif($this -> path() == 'ed'){
+            return true;
+        }elseif($this -> path() == 'update'){
+            return true;
+        }elseif($this -> path() == 'up'){
+            return true;
         }else{
         return false;
         }

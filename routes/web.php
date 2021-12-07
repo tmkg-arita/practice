@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CrudController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,5 +21,7 @@ Route::get('/',[CrudController::class,'index'])->name('posts.index');
 Route::get('/create',[CrudController::class,'create'])->name('posts.create');
 Route::post('/create',[CrudController::class,'store'])->name('posts.store');
 
-Route::post('/edit',[CrudController::class,'edit'])->name('posts.edit');
-// Route::post('/edit',[CrudController::class,'update'])->name('posts.update');
+Route::get('/edit',[CrudController::class,'edit'])->name('posts.edit');
+Route::post('/edit',[CrudController::class,'edit'])->name('posts.ed');
+// Route::get('/update',[CrudController::class,'update'])->name('posts.up');
+Route::patch('/update',[CrudController::class,'update'])->name('posts.update');

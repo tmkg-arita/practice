@@ -6,7 +6,8 @@
     <h1>編集画面</h1>
     <p class="msg">{{$msg}}</p>
     </div>
-    <form action="" method="post">
+    <form action="{{route('posts.update')}}" method="post">
+        @method('PATCH')
         @csrf
         @foreach ($users as $user)
             <!-- {{$user}} -->
