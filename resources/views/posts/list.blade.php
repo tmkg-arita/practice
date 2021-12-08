@@ -30,10 +30,7 @@
                     @else
                     <td>女性</td>
                     @endif
-                    <form action="{{route('posts.edit')}}" method="post">
-                        @csrf
-                        <input type="hidden" name="id_number" value="{{$user -> id}}">
-                    <td class="update"><input type="submit" name="edit" value="編集"></td>
+                    <td><a href="{{route('posts.edit',$user->id)}}">編集</a></td>
                     <td class="delete"><a href="">削除</a></td>
                     </form>
         </tr>

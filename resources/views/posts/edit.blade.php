@@ -9,21 +9,19 @@
     <form action="{{route('posts.update')}}" method="post">
         @method('PATCH')
         @csrf
-        @foreach ($users as $user)
-            <!-- {{$user}} -->
-
         @error('name')
             <span><td>※{{$message}}</td></span>
         @enderror
-        <p>name:<input type="text" name="name" value="{{old('name',$user -> name)}}"></input></p><br/>
+
+        <p>name:<input type="text" name="name" value="{{$users -> name}}"></input></p><br/>
         @error('mail')
             <span><td>※{{$message}}</td></span>
         @enderror
-        <p>mail:<input type="text" name="mail" value="{{old('mail',$user -> mail)}}"></input></p><br/>
+        <p>mail:<input type="text" name="mail" value="{{$users -> mail}}"></input></p><br/>
         @error('age')
             <span><td>※{{$message}}</td></span>
         @enderror
-        <p>age:<input type="text" name="age" value="{{old('age',$user -> age)}}"></input></p><br/>
+        <p>age:<input type="text" name="age" value="{{$users -> age}}"></input></p><br/>
         @error('gender')
             <span><td>※{{$message}}</td></span>
         @enderror
@@ -31,7 +29,7 @@
             　 <input type="radio" name="gender"  value=1>女性</input></p><br/>
         <input type="submit"></input><br/>
     </form>
-    @endforeach
+
     <a  class="re-list" href="{{route('posts.index')}}">一覧に戻る</a>
 </x-layout>
 

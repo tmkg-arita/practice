@@ -53,11 +53,8 @@ class CrudController extends Controller
         $post->mail = $request->mail;
         $post->age = $request->age;
         $post->gender = $gen;
-
-
-
         $post->save();
-        return view('posts.index')->with(['msg' => '登録が完了しました。']);
+        return redirect()->route('posts.index');
     }
 
     /**
@@ -66,10 +63,10 @@ class CrudController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
-    {
-        //
-    }
+    // public function show($id)
+    // {
+    //     //
+    // }
 
     /**
      * Show the form for editing the specified resource.
@@ -77,16 +74,21 @@ class CrudController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Request $request)
+    public function edit($id)
     {
+        $users = User::findOrFail($id);
+        var_dump($users.'<br/>');
+        $msg = '編集して下さい。';
+        // var_dump($users.'<br>');
+        return view('posts.edit',compact('users','msg'));
 
-        $id = $request -> id_number;
-        $id = intval($id);
-        $users = User::where('id', $id)->get();
-        // dd($users);
-        $msg = '編集する項目を修正して下さい。';
+        // $id = $request -> id_number;
+        // $id = intval($id);
+        // $users = User::where('id', $id)->get();
+        // // dd($users);
+        // $msg = '編集する項目を修正して下さい。';
 
-        return view('posts.edit',compact('msg','users'));
+        // return view('posts.edit',compact('msg','users'));
     }
 
     /**
@@ -98,19 +100,10 @@ class CrudController extends Controller
      */
     public function update(HelloRequest $request)
     {
-        // var_dump($request->name);
-        $gen = $request -> gender;
-        $gen = intval($gen);
 
-        $posts = new User();
 
-        $posts->name = $request->name;
-        $posts->mail = $request->mail;
-        $posts->age = $request->age;
-        $posts->gender = $gen;
-        // var_dump($posts -> name);
-        $posts->update();
-        return  view('posts.index')->with(['msg' => '編集が完了しました。']);
+        var_dump($request.'<br/>');
+        return redirect()->route('posts.index');
     }
 
     /**
