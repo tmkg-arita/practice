@@ -23,6 +23,8 @@ Route::post('/create',[CrudController::class,'store'])->name('posts.store');
 
 Route::get('/edit/{id}',[CrudController::class,'edit'])->name('posts.edit');
 Route::post('/update/{id}',[CrudController::class,'update'])->name('posts.update');
+Route::get('/destroy/{id}',[CrudController::class,'destroy'])->name('posts.destroy');
+Route::post('/destroy/{id}',[CrudController::class,'destroy'])->name('posts.dest');
 
 
 

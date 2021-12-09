@@ -30,7 +30,7 @@ class HelloRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required',
+            'name' => 'required|unique:users,name',
             'mail' => 'email',
             'age' => 'required|integer|numeric|between:0,150|unique:users,mail',
             'gender' => 'required',
@@ -41,6 +41,7 @@ class HelloRequest extends FormRequest
     public function messages(){
         return[
         'name.required' => '名前が入力されていません。',
+        'name.unique' => 'その名前は既に登録されています。',
         'mail.email'    => 'メールアドレスが入力されていません。',
         'mail.unique'    => 'そのメールアドレスは重複しています。',
         'age.required'  => '年齢が入力されていません。',

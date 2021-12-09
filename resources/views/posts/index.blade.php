@@ -24,7 +24,7 @@
         @error('gender')
             <span><td>※{{$message}}</td></span>
         @enderror
-        <p>gender:<input type="radio" name="gender"  value=0 >男性</input>
+        <p>gender:<input type="radio" name="gender"  value=0 checked>男性</input>
             　 <input type="radio" name="gender"  value=1>女性</input></p><br/>
         <input type="submit"></input><br/>
     </form>

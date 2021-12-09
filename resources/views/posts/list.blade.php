@@ -30,9 +30,9 @@
                     @else
                     <td>女性</td>
                     @endif
-                    <td><a href="{{route('posts.edit',$user->id)}}">編集</a></td>
-                    <td class="delete"><a href="">削除</a></td>
                     </form>
+                    <td><a href="{{route('posts.edit',$user->id)}}">編集</a></td>
+                    <td><a href="{{route('posts.destroy',$user->id)}}" onclick="return confirm('削除しますか')">削除</a></td>
         </tr>
         @endforeach
 

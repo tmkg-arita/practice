@@ -78,7 +78,7 @@ class CrudController extends Controller
     public function edit($id)
     {
         $users = User::findOrFail($id);
-        var_dump($users.'<br/>');
+        // var_dump($users.'<br/>');
         $msg = '編集して下さい。';
         // var_dump($users.'<br>');
         return view('posts.edit',compact('users','msg'));
@@ -126,6 +126,10 @@ class CrudController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $users = User::findOrFail($id);
+        // var_dump($users.'<br/>');
+        $users -> delete();
+        return redirect()->route('posts.index');
+
     }
 }
