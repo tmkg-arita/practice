@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Http\Requests\HelloRequest;
+//use Illuminate\Support\Facades\DB;
 
 class CrudController extends Controller
 {
@@ -98,12 +99,23 @@ class CrudController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(HelloRequest $request)
+    public function update(HelloRequest $request,$id)
     {
+        $gen = $request -> gender;
+        $gen = intval($gen);
 
+        $users = User::findOrFail($id);
+        // var_dump($users.'<br/>');
 
-        var_dump($request.'<br/>');
+        $users->name = $request->name;
+        $users->mail = $request->mail;
+        $users->age = $request->age;
+        $users->gender = $gen;
+        $users->save();
         return redirect()->route('posts.index');
+
+        // var_dump($request.'<br/>');
+
     }
 
     /**

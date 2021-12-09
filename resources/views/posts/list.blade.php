@@ -19,7 +19,7 @@
         </tr>
         <!-- <tr>ここにデータベースから抽出したデータをforelseで流す</tr> -->
         @foreach ($users as $user)
-            <!-- {{$user}} -->
+
         <tr>
                     <td>{{$user -> id}}</td>
                     <td>{{$user -> name}}</td>

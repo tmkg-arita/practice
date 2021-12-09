@@ -22,7 +22,7 @@ Route::get('/create',[CrudController::class,'create'])->name('posts.create');
 Route::post('/create',[CrudController::class,'store'])->name('posts.store');
 
 Route::get('/edit/{id}',[CrudController::class,'edit'])->name('posts.edit');
-Route::patch('/update',[CrudController::class,'update'])->name('posts.update');
+Route::post('/update/{id}',[CrudController::class,'update'])->name('posts.update');
 
 
 

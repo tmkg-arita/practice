@@ -6,8 +6,8 @@
     <h1>編集画面</h1>
     <p class="msg">{{$msg}}</p>
     </div>
-    <form action="{{route('posts.update')}}" method="post">
-        @method('PATCH')
+    <form action="{{route('posts.update',['id' => $users -> id])}}" method="post">
+
         @csrf
         @error('name')
             <span><td>※{{$message}}</td></span>
@@ -25,8 +25,8 @@
         @error('gender')
             <span><td>※{{$message}}</td></span>
         @enderror
-        <p>gender:<input type="radio" name="gender"  value=0 >男性</input>
-            　 <input type="radio" name="gender"  value=1>女性</input></p><br/>
+        <p>gender:<input type="radio" name="gender"  value=0 @if($users -> gender === 0)checked @endif>男性</input>
+            　 <input type="radio" name="gender"  value=1 @if($users -> gender === 1)checked @endif>女性</input></p><br/>
         <input type="submit"></input><br/>
     </form>
 
