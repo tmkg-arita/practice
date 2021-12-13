@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Http\Requests\HelloRequest;
+use App\Http\Requests\EditRequest;
 //use Illuminate\Support\Facades\DB;
 
 class CrudController extends Controller
@@ -99,7 +100,7 @@ class CrudController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(HelloRequest $request,$id)
+    public function update(EditRequest $request,$id)
     {
         $gen = $request -> gender;
         $gen = intval($gen);

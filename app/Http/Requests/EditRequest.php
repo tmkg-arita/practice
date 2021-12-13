@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class HelloRequest extends FormRequest
+class EditRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -13,7 +13,7 @@ class HelloRequest extends FormRequest
      */
     public function authorize()
     {
-        if($this -> path() == 'create'){
+        if($this -> path() == 'update'){
             return true;
         }else{
         return true;
@@ -28,18 +28,17 @@ class HelloRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|unique:users,name',
+            'name' => 'required',
             'mail' => 'email',
             'age' => 'required|integer|numeric|between:0,150|unique:users,mail',
             'gender' => 'required',
 
         ];
     }
-    // ,'.Auth::user()->id.',id
+
     public function messages(){
         return[
         'name.required' => '名前が入力されていません。',
-        'name.unique' => 'その名前は既に登録されています。',
         'mail.email'    => 'メールアドレスが入力されていません。',
         'mail.unique'    => 'そのメールアドレスは重複しています。',
         'age.required'  => '年齢が入力されていません。',
