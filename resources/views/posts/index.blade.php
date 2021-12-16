@@ -24,8 +24,8 @@
         @error('gender')
             <span><td>※{{$message}}</td></span>
         @enderror
-        <p>gender:<input type="radio" name="gender"  value=0 checked>男性</input>
-            　 <input type="radio" name="gender"  value=1>女性</input></p><br/>
+        <p>gender:<input type="radio" name="gender"  value=0  @if(old('gender') == 0) checked @endif>男性</input>
+            　 <input type="radio" name="gender"  value=1 @if(old('gender') == 1) checked @endif>女性</input></p><br/>
         <input type="submit"></input><br/>
     </form>
     <a  class="re-list" href="{{route('posts.index')}}">一覧に戻る</a>

@@ -13,20 +13,24 @@
             <span><td>※{{$message}}</td></span>
         @enderror
 
-        <p>name:<input type="text" name="name" value="{{$users -> name}}"></input></p><br/>
+        <p>name:<input type="text" name="name" value="{{old('name',$users -> name)}}"></input></p><br/>
+
+
         @error('mail')
             <span><td>※{{$message}}</td></span>
         @enderror
-        <p>mail:<input type="text" name="mail" value="{{$users -> mail}}"></input></p><br/>
+        <p>mail:<input type="text" name="mail" value="{{old('mail',$users -> mail)}}"></input></p><br/>
+
         @error('age')
             <span><td>※{{$message}}</td></span>
         @enderror
-        <p>age:<input type="text" name="age" value="{{$users -> age}}"></input></p><br/>
+        <p>age:<input type="text" name="age" value="{{old('age',$users -> age)}}"></input></p><br/>
         @error('gender')
             <span><td>※{{$message}}</td></span>
         @enderror
-        <p>gender:<input type="radio" name="gender"  value=0 @if($users -> gender === 0)checked @endif>男性</input>
-            　 <input type="radio" name="gender"  value=1 @if($users -> gender === 1)checked @endif>女性</input></p><br/>
+        <p>gender:<input type="radio" name="gender"  value=0 @if(old('gender', $users->gender) == 0) checked @endif>男性</input>
+
+             <input type="radio" name="gender"  value=1 @if(old('gender', $users->gender) == 1) checked @endif>女性</input></p><br/>
         <input type="submit"></input><br/>
     </form>
 
