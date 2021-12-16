@@ -38,15 +38,15 @@ class HelloRequest extends FormRequest
     // ,'.Auth::user()->id.',id
     public function messages(){
         return[
-        'name.required' => '名前が入力されていません。',
+        'name.required' => '名前が入力されておりません。',
         'name.unique' => 'その名前は既に登録されています。',
-        'mail.email'    => 'メールアドレスが入力されていません。',
+        'mail.email'    => 'メールアドレスが入力されておりません。',
         'mail.unique'    => 'そのメールアドレスは重複しています。',
-        'age.required'  => '年齢が入力されていません。',
-        'age.integer'   => '年齢が整数で入力されていません。',
-        'age.numeric'   => '年齢が数値で入力されていません。',
+        'age.required'  => '年齢が入力されておりません。',
+        'age.integer'   => '年齢が整数で入力されておりません。',
+        'age.numeric'   => '年齢が数値で入力されておりません。',
         'age.between' => '年齢は0~150の間で入力してください。',
-        'gender.required'   => '性別が選択されていません。',
+        'gender.required'   => '性別が選択されておりません。',
 
 
         ];
